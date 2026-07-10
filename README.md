@@ -362,6 +362,6 @@ Keep this mindset while reading or modifying the project:
 - Zod validates incoming request bodies and route parameters.
 - Prisma `include` is used in member queries to return related role data.
 - You do not need to understand everything at once. Start from one endpoint, follow the files in order, and the architecture will become much easier to read.
-- If you are ever feel confused or stuck at any point PLEASE do not be afraid to use AI tools as a learning partner or you can ask HIMTI's WebDev Manager or General Manager.
+- If you ever feel confused or stuck at any point PLEASE do not be afraid to use AI tools as a learning partner or you can ask HIMTI's WebDev Manager or General Manager.
 
 ## Have Fun Guyss!!
