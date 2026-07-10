@@ -1,10 +1,12 @@
 # Root Team Member List API
 
-Root Team Member List API is a standalone backend mini project for HIMTI Activists in Commission 3, also known as Komisi Tiga or Komtig. This project is here to help you get comfortable with how a backend receives requests, validates data, talks to a database, and returns JSON responses.
+Root Team Member List API is a standalone backend mini project for HIMTI Activists in Commission 3, also known as Komtig. This project is here to help you get comfortable with how a backend receives requests, validates data, talks to a database, and returns JSON responses.
 
 This project is not the real HIMTI Internal Backend, so it is safe to use as a learning playground. The code follows the same HIMTI-style feature architecture, but the logic stays simple: managing root team roles and members.
 
-If you are cloning this as a Komtig activist, take your time with it. Read one feature at a time, try the endpoints, break things locally, fix them again, and use this project to understand the flow before jumping into bigger backend projects.
+If you are cloning this as a Komtig activist, take your time with it guyss. Read one feature at a time, try the endpoints, break things locally, fix them again, and use this project to understand the flow before jumping into bigger backend projects.
+
+If you ever feel confused or stuck at any point, its okay! Do not be afraid to use AI tools as a learning partner, ask it to explain an error message, summarize what a file does, compare controller vs service responsibilities, or help you understand a Prisma/Zod concept. Just make sure you still read the answer, test the code yourself, and try to explain the solution back in your own words so you actually learn from it.
 
 ## Tech Stack
 
@@ -69,7 +71,7 @@ Install the Node.js LTS version. `npm` will be installed together with Node.js.
 
 #### Windows
 
-Recommended beginner-friendly way:
+Recommended beginner friendly way:
 
 1. Open <https://nodejs.org>.
 2. Download the LTS installer for Windows.
@@ -84,7 +86,7 @@ winget install OpenJS.NodeJS.LTS
 
 #### macOS
 
-Recommended beginner-friendly way:
+Recommended beginner friendly way:
 
 1. Open <https://nodejs.org>.
 2. Download the LTS installer for macOS.
@@ -127,11 +129,11 @@ If both commands print version numbers, you are good to continue.
 
 ### 2. Install PostgreSQL
 
-This project needs PostgreSQL because Prisma will store roles and members in a local database.
+This project also needs PostgreSQL because Prisma will store roles and members in your local database.
 
 #### Windows and macOS
 
-Recommended beginner-friendly way:
+Recommended beginner friendly way:
 
 1. Open <https://www.postgresql.org/download/>.
 2. Choose your operating system.
@@ -360,3 +362,6 @@ Keep this mindset while reading or modifying the project:
 - Zod validates incoming request bodies and route parameters.
 - Prisma `include` is used in member queries to return related role data.
 - You do not need to understand everything at once. Start from one endpoint, follow the files in order, and the architecture will become much easier to read.
+- If you are ever feel confused or stuck at any point PLEASE do not be afraid to use AI tools as a learning partner or you can ask HIMTI's WebDev Manager or General Manager.
+
+## Have Fun Guyss!!
