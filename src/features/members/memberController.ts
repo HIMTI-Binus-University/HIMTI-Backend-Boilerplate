@@ -1,16 +1,13 @@
 import { Request, Response } from 'express';
 import {
    CreateMemberSchema,
-   DeleteMemberSchema,
-   GetMemberSchema,
    MemberParamsSchema,
    UpdateMemberSchema,
 } from './memberSchema.js';
 import { memberService } from './memberService.js';
 
-export const getMembers = async (req: Request, res: Response) => {
-   const query = GetMemberSchema.parse(req.query);
-   const result = await memberService.getMembers(query);
+export const getMembers = async (_req: Request, res: Response) => {
+   const result = await memberService.getMembers();
    res.status(200).json({ msg: 'success', data: result });
 };
 
@@ -52,12 +49,6 @@ export const updateMember = async (req: Request, res: Response) => {
 
 export const deleteMember = async (req: Request, res: Response) => {
    const { id } = MemberParamsSchema.parse(req.params);
-   const validation = DeleteMemberSchema.safeParse(req.body ?? {});
-
-   if (!validation.success) {
-      return res.status(400).json({ errors: validation.error.format() });
-   }
-
    const result = await memberService.deleteMember(id);
 
    res.status(200).json({ msg: 'success', data: result });

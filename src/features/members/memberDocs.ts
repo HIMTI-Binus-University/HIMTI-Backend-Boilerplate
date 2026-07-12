@@ -24,8 +24,8 @@ const memberSchema = z.object({
    name: z.string(),
    email: z.string().email(),
    generation: z.number(),
-   roleId: z.number().nullable(),
-   role: roleSummarySchema.optional(),
+   roleId: z.number(),
+   role: roleSummarySchema.unwrap(),
    createdAt: z.string().datetime(),
    updatedAt: z.string().datetime(),
 });
@@ -34,14 +34,14 @@ const createMemberRequestSchema = z.object({
    name: z.string().min(1),
    email: z.string().email(),
    generation: z.number().int(),
-   roleId: z.number().int().positive().nullable().optional(),
+   roleId: z.number().int().positive(),
 });
 
 const updateMemberRequestSchema = z.object({
    name: z.string().min(1).optional(),
    email: z.string().email().optional(),
    generation: z.number().int().optional(),
-   roleId: z.number().int().positive().nullable().optional(),
+   roleId: z.number().int().positive().optional(),
 });
 
 const memberMutationResponseSchema = z.object({

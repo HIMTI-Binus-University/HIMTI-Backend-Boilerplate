@@ -10,8 +10,6 @@ export const UpdateRoleSchema = CreateRoleSchema.partial().refine(
    'At least one field must be provided',
 );
 
-export const DeleteRoleSchema = z.object({});
-
 export const GetRoleSchema = z.object({});
 
 export const RoleParamsSchema = z.object({

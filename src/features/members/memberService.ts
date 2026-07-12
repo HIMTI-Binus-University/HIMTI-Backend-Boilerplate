@@ -4,17 +4,16 @@ import { roleRepository } from '@/features/roles/roleRepository.js';
 import { memberRepository } from './memberRepository.js';
 import type {
    CreateMemberRequest,
-   GetMemberQuery,
    MemberWithRole,
    UpdateMemberRequest,
 } from './memberTypes.js';
 
 class MemberService {
-   async getMembers(_params: GetMemberQuery): Promise<MemberWithRole[]> {
+   async getMembers(): Promise<MemberWithRole[]> {
       return await memberRepository.findAll();
    }
 
-   async getMemberById(id: number): Promise<MemberWithRole | null> {
+   async getMemberById(id: number) {
       return await memberRepository.findById(id);
    }
 
@@ -25,19 +24,21 @@ class MemberService {
          throw new AppError('Member email already exists', 409);
       }
 
-      if (payload.roleId !== undefined && payload.roleId !== null) {
-         const role = await roleRepository.findById(payload.roleId);
+      const role = await roleRepository.findById(payload.roleId);
 
-         if (!role) {
-            throw new AppError('Role not found', 404);
-         }
+      if (!role) {
+         throw new AppError('Role not found', 404);
       }
 
-      const data: Prisma.MemberUncheckedCreateInput = {
+      const data: Prisma.MemberCreateInput = {
          name: payload.name,
          email: payload.email,
          generation: payload.generation,
-         roleId: payload.roleId,
+         role: {
+            connect: {
+               id: payload.roleId,
+            },
+         },
       };
 
       return await memberRepository.create(data);
@@ -63,7 +64,7 @@ class MemberService {
          }
       }
 
-      if (payload.roleId !== undefined && payload.roleId !== null) {
+      if (payload.roleId !== undefined) {
          const role = await roleRepository.findById(payload.roleId);
 
          if (!role) {
@@ -71,11 +72,15 @@ class MemberService {
          }
       }
 
-      const data: Prisma.MemberUncheckedUpdateInput = {
+      const data: Prisma.MemberUpdateInput = {
          name: payload.name,
          email: payload.email,
          generation: payload.generation,
-         roleId: payload.roleId,
+         role: {
+            connect: {
+               id: payload.roleId,
+            },
+         },
       };
 
       return await memberRepository.update(id, data);

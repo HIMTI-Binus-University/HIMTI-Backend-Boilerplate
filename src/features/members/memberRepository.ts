@@ -2,35 +2,29 @@ import type { Member, Prisma } from '@prisma/client';
 import { prisma } from '@/config/prisma.js';
 import type { MemberWithRole } from './memberTypes.js';
 
-const memberInclude = {
-   role: true,
-} satisfies Prisma.MemberInclude;
-
 class MemberRepository {
-   async create(
-      data: Prisma.MemberUncheckedCreateInput,
-   ): Promise<MemberWithRole> {
+   async create(data: Prisma.MemberCreateInput): Promise<MemberWithRole> {
       return await prisma.member.create({
          data,
-         include: memberInclude,
+         include: { role: true },
       });
    }
 
    async update(
       id: number,
-      data: Prisma.MemberUncheckedUpdateInput,
+      data: Prisma.MemberUpdateInput,
    ): Promise<MemberWithRole> {
       return await prisma.member.update({
          where: { id },
          data,
-         include: memberInclude,
+         include: { role: true },
       });
    }
 
    async findById(id: number): Promise<MemberWithRole | null> {
       return await prisma.member.findUnique({
          where: { id },
-         include: memberInclude,
+         include: { role: true },
       });
    }
 
@@ -42,7 +36,7 @@ class MemberRepository {
 
    async findAll(): Promise<MemberWithRole[]> {
       return await prisma.member.findMany({
-         include: memberInclude,
+         include: { role: true },
          orderBy: { id: 'asc' },
       });
    }

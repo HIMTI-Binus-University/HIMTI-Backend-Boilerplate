@@ -1,7 +1,6 @@
 import { Request, Response } from 'express';
 import {
    CreateRoleSchema,
-   DeleteRoleSchema,
    GetRoleSchema,
    RoleParamsSchema,
    UpdateRoleSchema,
@@ -52,12 +51,6 @@ export const updateRole = async (req: Request, res: Response) => {
 
 export const deleteRole = async (req: Request, res: Response) => {
    const { id } = RoleParamsSchema.parse(req.params);
-   const validation = DeleteRoleSchema.safeParse(req.body ?? {});
-
-   if (!validation.success) {
-      return res.status(400).json({ errors: validation.error.format() });
-   }
-
    const result = await roleService.deleteRole(id);
 
    res.status(200).json({ msg: 'success', data: result });

@@ -31,7 +31,7 @@ app.use(globalErrorHandler);
 
 const startServer = async () => {
    try {
-      await prisma.$connect();
+      await prisma.$connect(); // optional
 
       app.listen(port, () => {
          console.log(`Server is running at http://localhost:${port}`);

@@ -21,8 +21,8 @@ model Member {
   name       String
   email      String   @unique
   generation Int
-  roleId     Int?
-  role       Role?    @relation(fields: [roleId], references: [id], onDelete: SetNull)
+  roleId     Int
+  role       Role     @relation(fields: [roleId], references: [id], onDelete: Restrict)
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
 }

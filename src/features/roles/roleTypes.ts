@@ -2,7 +2,6 @@ import type { Role } from '@prisma/client';
 import { z } from 'zod';
 import {
    CreateRoleSchema,
-   DeleteRoleSchema,
    GetRoleSchema,
    RoleParamsSchema,
    UpdateRoleSchema,
@@ -10,7 +9,6 @@ import {
 
 export type CreateRoleRequest = z.infer<typeof CreateRoleSchema>;
 export type UpdateRoleRequest = z.infer<typeof UpdateRoleSchema>;
-export type DeleteRoleRequest = z.infer<typeof DeleteRoleSchema>;
 export type GetRoleQuery = z.infer<typeof GetRoleSchema>;
 export type RoleParamsRequest = z.infer<typeof RoleParamsSchema>;
 
