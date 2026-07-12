@@ -13,7 +13,7 @@ class MemberService {
       return await memberRepository.findAll();
    }
 
-   async getMemberById(id: number) {
+   async getMemberById(id: number): Promise<MemberWithRole | null> {
       return await memberRepository.findById(id);
    }
 
