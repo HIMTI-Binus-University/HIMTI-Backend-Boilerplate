@@ -13,13 +13,7 @@ router.use(
    '/docs',
    apiReference({
       url: '/api/openapi.json',
-      pageTitle: 'Root Team Member List API',
-      proxyUrl: '',
-      customFetch: (input, init) =>
-         fetch(input, {
-            ...init,
-            credentials: 'include',
-         }),
+      pageTitle: 'HIMTI Backend API',
    }),
 );
 

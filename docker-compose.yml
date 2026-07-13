@@ -1,12 +1,11 @@
 services:
    postgres:
       image: postgres:16-alpine
-      container_name: root-team-member-list-postgres
       restart: unless-stopped
       environment:
          POSTGRES_USER: postgres
          POSTGRES_PASSWORD: postgres
-         POSTGRES_DB: root_team_member_list
+         POSTGRES_DB: himti_backend
       ports:
          - '5432:5432'
       volumes:

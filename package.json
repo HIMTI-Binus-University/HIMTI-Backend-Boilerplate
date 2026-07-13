@@ -1,7 +1,7 @@
 {
-   "name": "root-team-member-list-api",
+   "name": "himti-backend-boilerplate",
    "version": "1.0.0",
-   "description": "Standalone Express, TypeScript, Prisma, and PostgreSQL API for Root Team member management training.",
+   "description": "HIMTI backend boilerplate built with Express, TypeScript, Prisma, and PostgreSQL.",
    "main": "dist/index.js",
    "scripts": {
       "dev": "tsx watch src/index.ts",
@@ -10,7 +10,6 @@
       "prisma:migrate": "prisma migrate dev",
       "prisma:generate": "prisma generate",
       "prisma:studio": "prisma studio",
-      "prisma:seed": "tsx prisma/seed.ts",
       "lint": "eslint src --ext .ts",
       "format": "prettier --write ."
    },
@@ -22,7 +21,8 @@
       "typescript",
       "prisma",
       "postgresql",
-      "training"
+      "boilerplate",
+      "himti"
    ],
    "author": "HIMTI Web Development Training",
    "license": "MIT",
@@ -48,8 +48,5 @@
       "tsx": "^4.20.3",
       "typescript": "^5.8.3",
       "typescript-eslint": "^8.35.1"
-   },
-   "prisma": {
-      "seed": "tsx prisma/seed.ts"
    }
 }
