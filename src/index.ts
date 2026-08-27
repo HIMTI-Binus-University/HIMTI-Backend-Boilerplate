@@ -7,10 +7,11 @@ import { globalErrorHandler } from '@/middleware/errorMiddleware.js';
 
 const app = express();
 const port = process.env.PORT || 8000;
+const corsOrigin = process.env.CORS_ORIGIN || 'http://localhost:3000';
 const shouldEnableApiDocs = process.env.ENABLE_API_DOCS === 'true';
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({ origin: corsOrigin, credentials: true }));
 
 if (shouldEnableApiDocs) {
    app.use('/api', docsRoutes);
